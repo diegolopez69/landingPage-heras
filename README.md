@@ -31,7 +31,7 @@ Give a ⭐️ if this project helped you!
 
 ## 📝 License
 
-Copyright © 2025 [Diego López](https://github.com/diegolopez69).
+Copyright © 2025 [Diego López](https://github.com/diegolopez69) and [Victor Leal](https://github.com/FicLel).
 
 This project is [MIT](https://github.com/diegolopez69/landingPage-heras/issues) licensed.
 

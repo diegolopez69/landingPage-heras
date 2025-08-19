@@ -9,3 +9,4 @@ Built with TypeScript, Upstash Redis, and clean architecture.
 cd landing
 npm install
 npm run dev
+```

@@ -12,7 +12,8 @@ export type ThemeOverride = z.infer<typeof ThemeSchema>;
 const KEY = "lp:theme:override";
 
 export const hasUpstash =
-  !!process.env.UPSTASH_REDIS_REST_URL && !!process.env.UPSTASH_REDIS_REST_TOKEN;
+  !!process.env.UPSTASH_REDIS_REST_URL &&
+  !!process.env.UPSTASH_REDIS_REST_TOKEN;
 
 export function defaultTheme() {
   return {
@@ -50,7 +51,8 @@ export async function setOverride(payload: {
   colors: [string, string, string];
   ttlSeconds: number;
 }) {
-  if (!hasUpstash) throw new Error("Upstash no configurado (UPSTASH_* vacíos).");
+  if (!hasUpstash)
+    throw new Error("Upstash no configurado (UPSTASH_* vacíos).");
   const until = Math.floor(Date.now() / 1000) + payload.ttlSeconds;
   const validated = ThemeSchema.parse({ ...payload, until });
   await redis.set(KEY, JSON.stringify(validated), { ex: payload.ttlSeconds });

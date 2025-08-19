@@ -117,12 +117,18 @@ export default async function RootLayout({
                 {/* ❌ Sin onSubmit / onClick en Server Component */}
                 <form
                   className="newsletter"
-                  action="/api/newsletter"   // placeholder; no existe pero evita el error
+                  action="/api/newsletter" // placeholder; no existe pero evita el error
                   method="post"
                   noValidate
                 >
-                  <input type="email" name="email" placeholder="Tu correo electrónico" />
-                  <button className="send" type="submit">→</button>
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Tu correo electrónico"
+                  />
+                  <button className="send" type="submit">
+                    →
+                  </button>
                 </form>
                 <p className="muted" style={{ fontSize: 12, marginTop: 8 }}>
                   Al suscribirte aceptas recibir comunicaciones comerciales.

@@ -10,18 +10,18 @@ const BodySchema = z.object({
   colors: z.tuple([
     z.string().regex(/^#([0-9a-f]{3}|[0-9a-f]{6})$/i),
     z.string().regex(/^#([0-9a-f]{3}|[0-9a-f]{6})$/i),
-    z.string().regex(/^#([0-9a-f]{3}|[0-9a-f]{6})$/i)
+    z.string().regex(/^#([0-9a-f]{3}|[0-9a-f]{6})$/i),
   ]),
-  ttlHours: z.number().int().min(1).max(24).default(2)
+  ttlHours: z.number().int().min(1).max(24).default(2),
 });
 
-function authorize(req: Request){
+function authorize(req: Request) {
   const auth = req.headers.get("authorization") || "";
   const token = auth.replace(/^Bearer\s+/i, "");
   return token && token === process.env.ADMIN_TOKEN;
 }
 
-export async function POST(req: Request){
+export async function POST(req: Request) {
   if (!authorize(req)) return new NextResponse("Unauthorized", { status: 401 });
   try {
     const body = BodySchema.parse(await req.json());
@@ -30,16 +30,19 @@ export async function POST(req: Request){
       name: body.name,
       logoUrl: body.logoUrl,
       colors: body.colors,
-      ttlSeconds
+      ttlSeconds,
     });
     return NextResponse.json({ ok: true, until: saved.until }, { status: 201 });
-  } catch (err:any) {
-    return NextResponse.json({ ok:false, error: err.message }, { status: 400 });
+  } catch (err: any) {
+    return NextResponse.json(
+      { ok: false, error: err.message },
+      { status: 400 },
+    );
   }
 }
 
-export async function DELETE(req: Request){
+export async function DELETE(req: Request) {
   if (!authorize(req)) return new NextResponse("Unauthorized", { status: 401 });
   await clearOverride();
-  return NextResponse.json({ ok:true });
+  return NextResponse.json({ ok: true });
 }

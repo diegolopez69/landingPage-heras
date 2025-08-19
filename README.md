@@ -19,8 +19,10 @@ npm run dev
 ## Author
 
 👤 **Diego López**
+👤 **Victor Leal**
 
 * Github: [@diegolopez69](https://github.com/diegolopez69)
+* Github: [@FicLel](https://github.com/FicLel)
 
 ## Show your support
 

@@ -34,6 +34,3 @@ Give a ⭐️ if this project helped you!
 Copyright © 2025 [Diego López](https://github.com/diegolopez69) and [Victor Leal](https://github.com/FicLel).
 
 This project is [MIT](https://github.com/diegolopez69/landingPage-heras/issues) licensed.
-
-***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
